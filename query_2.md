@@ -2,11 +2,15 @@
 
 - Contare quanti iscritti ci sono stati ogni anno
 
-SELECT COUNT(id), YEAR(`enrolment_date`) FROM `students` GROUP BY YEAR(`enrolment_date`);
+SELECT COUNT(id), YEAR(`enrolment_date`) 
+FROM `students` 
+GROUP BY YEAR(`enrolment_date`);
 
 - Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
-SELECT COUNT(id), `office_address` FROM `teachers` GROUP BY `office_address`;
+SELECT COUNT(id), `office_address` 
+FROM `teachers` 
+GROUP BY `office_address`;
 
 - Calcolare la media dei voti di ogni appello d'esame
 
@@ -14,7 +18,9 @@ SELECT COUNT(id), `office_address` FROM `teachers` GROUP BY `office_address`;
 
 - Contare quanti corsi di laurea ci sono per ogni dipartimento
 
-SELECT COUNT(id), `name` FROM `degrees` GROUP BY `name`;
+SELECT COUNT(id), `name` 
+FROM `degrees` 
+GROUP BY `name`;
 
 
 
@@ -22,6 +28,10 @@ SELECT COUNT(id), `name` FROM `degrees` GROUP BY `name`;
 
 - Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
 
+SELECT `students`.`id`,`students`.`name`,`students`.`surname`, `degrees`.`name`
+FROM `students`
+JOIN `degrees` ON `students`.`id` = `degree_id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
 
 - Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
 
